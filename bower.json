@@ -1,0 +1,32 @@
+{
+  "name": "recommendwp",
+  "homepage": "https://bitbucket.org/webdevsuperfast/recommendwp",
+  "authors": [
+    "RecommendWP Team <webdevsuperfast@gmail.com>"
+  ],
+  "description": "A Genesis child theme for RecommendWP",
+  "main": "",
+  "moduleType": [
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "recommendwp",
+    "genesis",
+    "wordpress",
+    "materializecss"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "Materialize": "materialize#^0.97.5",
+    "normalize-css": "^4.0.0"
+  }
+}
