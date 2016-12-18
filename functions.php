@@ -3,7 +3,7 @@
 include_once( get_template_directory() . '/lib/init.php' );
 
 //* Child theme (do not remove)
-define( 'CHILD_THEME_NAME', 'RecommendWP' );
+define( 'CHILD_THEME_NAME', 'Materialize Genesis' );
 define( 'CHILD_THEME_URL', 'http://www.recommendwp.com/' );
 define( 'CHILD_THEME_VERSION', '1.0.0' );
 
