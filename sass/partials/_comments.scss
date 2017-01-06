@@ -1,0 +1,36 @@
+// Comments
+.entry-comments {
+	margin-bottom: $gutter-width;
+	h3 {
+		margin-bottom: $gutter-width;
+	}
+	.comment {
+		margin: 0;
+		margin-bottom: $gutter-width;
+		// padding-bottom: $gutter-width;
+		&.parent {
+			margin-bottom: 0;
+		}
+		.media-left {
+			img {
+				max-width: inherit;
+			}
+		}
+	}
+	.children {
+		margin-top: $gutter-width;
+	}
+}
+
+// Trackbacks
+.entry-pings {
+	.pingback {
+		margin-bottom: $gutter-width;
+		padding-bottom: $gutter-width;
+	}
+}
+
+.ping-list, .comment-list {
+    padding-left: 0;
+    list-style: none;
+}
