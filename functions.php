@@ -39,7 +39,6 @@ add_theme_support( 'genesis-footer-widgets', 3 );
 
 //* Unregister unneeded sidebars
 unregister_sidebar( 'header-right' );
-unregister_sidebar( 'sidebar-alt' );
 
 //* Remove the secondary navigation
 remove_action( 'genesis_after_header', 'genesis_do_subnav' );
@@ -50,6 +49,10 @@ remove_action( 'genesis_header', 'genesis_header_markup_close', 15 );
 remove_action( 'genesis_header', 'genesis_do_header' );
 
 add_theme_support( 'genesis-structural-wraps', array( 'header', 'menu-primary', 'footer-copyright', 'site-inner', 'footer-widgets' ) );
+
+//* Move Sidebar Secondary After Content
+remove_action( 'genesis_after_content_sidebar_wrap', 'genesis_get_sidebar_alt' );
+add_action( 'genesis_after_content', 'genesis_get_sidebar_alt' );
 
 //* Include php files from lib folder
 //* @link https://gist.github.com/theandystratton/5924570
