@@ -1,17 +1,21 @@
 <?php
 add_filter( 'wp_nav_menu_args', 'rwp_nav_menu_args', 10, 2 );
 function rwp_nav_menu_args( $args ) {
-	require_once( RWP_MODULES . 'navmenuwalker.php' );
+	require_once( RWP_MODULES . 'wp-materialize-navwalker/wp_materialize_navwalker.php' );
 
-	if ( 'primary' === $args['theme_location'] || 'secondary' === $args['theme_location'] ) {
+	if ( 'primary' === $args['theme_location'] ) {
 		$args['container'] = '';
 		$args['items_wrap'] = '<ul id="%1$s" class="right hide-on-med-and-down %2$s">%3$s</ul>';
-		$args['fallback_cb'] = 'Materialize_CSS_Menu_Walker::fallback';
-        $args['walker'] = new Materialize_CSS_Menu_Walker();
+		// $args['fallback_cb'] = 'Materialize_CSS_Menu_Walker::fallback';
+        // $args['walker'] = new Materialize_CSS_Menu_Walker();
+		// $args['menu_class'] = 'right hide-on-med-and-down';
+		$args['walker'] = new wp_materialize_navwalker();
 	}
 
 	if ( 'secondary' === $args['theme_location'] ) {
-		$args['items_wrap'] = '<ul id="%1$s" class="side-nav %2$s">%3$s</ul>';
+		$args['container'] = '';
+		$args['items_wrap'] = '<ul id="%1$s" class="%2$s">%3$s</ul>';
+		$args['walker'] = new wp_materialize_navwalker();
 	}
 
 	return $args;
