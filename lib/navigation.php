@@ -1,7 +1,7 @@
 <?php
 add_filter( 'wp_nav_menu_args', 'rwp_nav_menu_args', 10, 2 );
 function rwp_nav_menu_args( $args ) {
-	require_once( RWP_MODULES . 'wp-materialize-navwalker/wp_materialize_navwalker.php' );
+	require_once( RWP_MODULES . 'wp_materialize_navwalker.php' );
 
 	if ( 'primary' === $args['theme_location'] ) {
 		$args['container'] = '';
