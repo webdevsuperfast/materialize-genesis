@@ -33,7 +33,7 @@ gulp.task('styles', function(){
         .pipe(cmq())
         .pipe(gulp.dest('temp/css'))
         .pipe(rename('app.css'))
-        .pipe(prettify())
+        .pipe(minifycss())
         .pipe(gulp.dest('stylesheet'))
         .pipe(notify({ message: 'Styles task complete' }));
     
