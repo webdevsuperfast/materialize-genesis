@@ -16,15 +16,13 @@ add_filter( 'genesis_search_form', 'mg_search_form', 10, 4);
 function mg_search_form( $form, $search_text, $button_text, $label ) {
     $value_or_placeholder = ( get_search_query() == '' ) ? 'placeholder' : 'value';
 $format = <<<EOT
-<nav><div class="nav-wrapper">
 <form method="get" class="search-form form-inline" action="%s" role="search">
     <div class="input-field">
         <input id="search" type="search" required name="s" %s="%s">
-        <label for="search"><i class="material-icons">search</i></label>
+        <label for="search">Search</label>
         <i class="material-icons">close</i>
     </div>
 </form>
-</div></nav>
 EOT;
 
     return sprintf( $format, home_url( '/' ), esc_html( $label ), $value_or_placeholder, esc_attr( $search_text ), esc_attr( $button_text ) );
