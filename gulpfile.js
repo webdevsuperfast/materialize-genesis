@@ -19,22 +19,22 @@ var gulp = require('gulp'),
 // CSS
 gulp.task('styles', function(){
     var cssStream = gulp.src([
-        // 'bower_components/normalize-css/normalize.css'
+        'bower_components/normalize-css/normalize.css'
     ])
     .pipe(concat('normalize.css'));
 
-    var sassStream = gulp.src('sass/app.scss')
+    var sassStream = gulp.src('assets/scss/app.scss')
         .pipe(sass.sync().on('error', sass.logError))
         .pipe(concat('app.scss'))
     
-    var mergeStream = merge(sassStream, cssStream)
+    var mergeStream = merge(cssStream,sassStream)
         .pipe(concat('app.css'))
         .pipe(autoprefixer('last 2 version'))
         .pipe(cmq())
         .pipe(gulp.dest('temp/css'))
         .pipe(rename('app.css'))
         .pipe(minifycss())
-        .pipe(gulp.dest('stylesheet'))
+        .pipe(gulp.dest('assets/css'))
         .pipe(notify({ message: 'Styles task complete' }));
     
     return mergeStream;
@@ -50,7 +50,7 @@ gulp.task('lint', function(){
 // Scripts
 gulp.task('scripts', function() {
     return gulp.src([
-        'js/source/*.js',
+        'assets/js/source/*.js',
         'bower_components/Materialize/dist/js/materialize.js'
     ])
     .pipe(changed('js'))
@@ -60,7 +60,7 @@ gulp.task('scripts', function() {
             .pipe(rename({suffix: '.min'}))
             .pipe(gulp.dest('temp/js'))
     }))
-    .pipe(gulp.dest('js'))
+    .pipe(gulp.dest('assets/js'))
     .pipe(notify({ message: 'Scripts task complete' }));
 });
 
@@ -78,8 +78,8 @@ gulp.task('default', ['clean'], function() {
 // Watch
 gulp.task('watch', function() {
     // Watch .scss files
-    gulp.watch(['sass/*.scss', 'sass/**/*.scss'], ['styles']);
+    gulp.watch(['assets/scss/*.scss', 'assets/scss/**/*.scss'], ['styles']);
 
     // Watch .js files
-    gulp.watch(['js/vendor/*.js', 'js/source/*.js'], ['scripts']);
+    gulp.watch(['assets/js/vendor/*.js', 'assets/js/source/*.js'], ['scripts']);
 });

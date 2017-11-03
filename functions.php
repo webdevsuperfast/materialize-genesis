@@ -8,8 +8,8 @@ define( 'CHILD_THEME_URL', 'http://www.recommendwp.com/' );
 define( 'CHILD_THEME_VERSION', '1.0.0' );
 
 //* Child theme specific folder paths 
-define( 'MG_CSS', CHILD_URL . '/stylesheet/' );
-define( 'MG_JS', CHILD_URL . '/js/' );
+define( 'MG_CSS', CHILD_URL . '/assets/css/' );
+define( 'MG_JS', CHILD_URL . '/assets/js/' );
 define( 'MG_IMG', CHILD_URL . '/images/' );
 define( 'MG_LIB', CHILD_DIR . '/lib/' );
 define( 'MG_MODULES', CHILD_DIR . '/lib/modules/' );
