@@ -14,7 +14,7 @@
 // Integrate Bootstrap Media List on comment lists
 add_filter( 'genesis_comment_list_args', 'bfg_comment_list_args', 10, 2 );
 function bfg_comment_list_args( $args ) {
-	require_once( RWP_MODULES . 'class-wp-bootstrap-comment-walker.php' );
+	require_once( MG_MODULES . 'class-wp-bootstrap-comment-walker.php' );
 
 	$args['avatar_size'] = 64;
 	$args['walker'] = new Bootstrap_Comment_Walker();
@@ -55,9 +55,9 @@ function bootstrap3_comment_form_fields( $fields ) {
     return $fields;
 }
 
-add_filter( 'genesis_ping_list_args', 'rwp_ping_list_args' );
-function rwp_ping_list_args( $args ) {
-    require_once( RWP_MODULES . 'class-wp-bootstrap-comment-walker.php' );
+add_filter( 'genesis_ping_list_args', 'mg_ping_list_args' );
+function mg_ping_list_args( $args ) {
+    require_once( MG_MODULES . 'class-wp-bootstrap-comment-walker.php' );
     
     $args['walker'] = new Bootstrap_Comment_Walker();
     $args['avatar_size'] = 0;

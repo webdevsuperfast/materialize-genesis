@@ -8,15 +8,15 @@ define( 'CHILD_THEME_URL', 'http://www.recommendwp.com/' );
 define( 'CHILD_THEME_VERSION', '1.0.0' );
 
 //* Child theme specific folder paths 
-define( 'RWP_CSS', CHILD_URL . '/stylesheet/' );
-define( 'RWP_JS', CHILD_URL . '/js/' );
-define( 'RWP_IMG', CHILD_URL . '/images/' );
-define( 'RWP_LIB', CHILD_DIR . '/lib/' );
-define( 'RWP_MODULES', CHILD_DIR . '/lib/modules/' );
+define( 'MG_CSS', CHILD_URL . '/stylesheet/' );
+define( 'MG_JS', CHILD_URL . '/js/' );
+define( 'MG_IMG', CHILD_URL . '/images/' );
+define( 'MG_LIB', CHILD_DIR . '/lib/' );
+define( 'MG_MODULES', CHILD_DIR . '/lib/modules/' );
 
 //* Enqueue Google Fonts
-add_action( 'wp_enqueue_scripts', 'rwp_google_fonts' );
-function rwp_google_fonts() {
+add_action( 'wp_enqueue_scripts', 'mg_google_fonts' );
+function mg_google_fonts() {
 
 	wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Material+Icons', array(), CHILD_THEME_VERSION );
 

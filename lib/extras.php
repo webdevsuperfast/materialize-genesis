@@ -23,9 +23,9 @@ function custom_register_sidebar_defaults( $defaults ) {
 
 // Remove Parentheses on Archive/Categories
 // @link http://wordpress.stackexchange.com/questions/88545/how-to-remove-the-parentheses-from-the-category-widget
-add_filter( 'wp_list_categories', 'rwp_categories_postcount_filter', 10, 2 );
-add_filter( 'get_archives_link', 'rwp_categories_postcount_filter', 10, 2 );
-function rwp_categories_postcount_filter( $variable ) {
+add_filter( 'wp_list_categories', 'mg_categories_postcount_filter', 10, 2 );
+add_filter( 'get_archives_link', 'mg_categories_postcount_filter', 10, 2 );
+function mg_categories_postcount_filter( $variable ) {
    $variable = str_replace( '(', '<span class="badge post-count">', $variable );
    $variable = str_replace( ')', '</span>', $variable );
    return $variable;

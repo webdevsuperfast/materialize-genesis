@@ -1,9 +1,9 @@
 <?php
 //* Replace default footer
 remove_action( 'genesis_footer', 'genesis_do_footer' );
-add_action( 'genesis_footer', 'rwp_do_footer' );
+add_action( 'genesis_footer', 'mg_do_footer' );
 
-function rwp_do_footer() {
+function mg_do_footer() {
 	genesis_markup( array(
 		'html5' => '<div %s>',
 		'xhtml' => '<div class="footer-copyright">',
@@ -27,9 +27,9 @@ function rwp_do_footer() {
 
 //* Replace Footer Widgets and move to Footer
 remove_action( 'genesis_before_footer', 'genesis_footer_widget_areas' );
-add_action( 'genesis_footer', 'rwp_footer_widget_areas', 7 );
+add_action( 'genesis_footer', 'mg_footer_widget_areas', 7 );
 
-function rwp_footer_widget_areas() {
+function mg_footer_widget_areas() {
 
 	$footer_widgets = get_theme_support( 'genesis-footer-widgets' );
 

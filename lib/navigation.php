@@ -1,7 +1,7 @@
 <?php
-add_filter( 'wp_nav_menu_args', 'rwp_nav_menu_args', 10, 2 );
-function rwp_nav_menu_args( $args ) {
-	require_once( RWP_MODULES . 'wp_materialize_navwalker.php' );
+add_filter( 'wp_nav_menu_args', 'mg_nav_menu_args', 10, 2 );
+function mg_nav_menu_args( $args ) {
+	require_once( MG_MODULES . 'wp_materialize_navwalker.php' );
 
 	if ( 'primary' === $args['theme_location'] ) {
 		$args['container'] = '';
@@ -21,13 +21,13 @@ function rwp_nav_menu_args( $args ) {
 	return $args;
 }
 
-add_filter( 'wp_nav_menu', 'rwp_nav_menu_markup_filter', 10, 2 );
-function rwp_nav_menu_markup_filter( $html, $args ) {
+add_filter( 'wp_nav_menu', 'mg_nav_menu_markup_filter', 10, 2 );
+function mg_nav_menu_markup_filter( $html, $args ) {
 	$data_target = 'mobile-navigation';
 	
 	if ( 'primary' == $args->theme_location ) {
 		$output = '<a href="#" data-activates="'.$data_target.'" class="button-collapse"><i class="material-icons">menu</i></a>';
-		$output .= apply_filters( 'rwp_navbar_brand', rwp_navbar_brand_markup() );
+		$output .= apply_filters( 'mg_navbar_brand', mg_navbar_brand_markup() );
 	}
 	
 	$output .= $html;
@@ -35,7 +35,7 @@ function rwp_nav_menu_markup_filter( $html, $args ) {
 	return $output;
 }
 
-function rwp_navbar_brand_markup() {
+function mg_navbar_brand_markup() {
 	$output = '<a class="brand-logo" id="logo" title="'.esc_attr( get_bloginfo( 'description' ) ).'" href="'.esc_url( home_url( '/' ) ).'">';
 	$output .= get_bloginfo( 'name' );
 	$output .= '</a>';
