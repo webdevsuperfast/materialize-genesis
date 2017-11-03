@@ -26,7 +26,7 @@
     "tests"
   ],
   "dependencies": {
-    "normalize-css": "^5.0.0",
-    "materialize": "^0.97.8"
+    "normalize-css": "^7.0.0",
+    "materialize": "^0.100.2"
   }
 }
