@@ -19,7 +19,7 @@ var gulp = require('gulp'),
 // CSS
 gulp.task('styles', function(){
     var cssStream = gulp.src([
-        'bower_components/normalize-css/normalize.css'
+        'node_modules/normalize-css/normalize.css'
     ])
     .pipe(concat('normalize.css'));
 
@@ -51,7 +51,7 @@ gulp.task('lint', function(){
 gulp.task('scripts', function() {
     return gulp.src([
         'assets/js/source/*.js',
-        'bower_components/Materialize/dist/js/materialize.js'
+        'node_modules/materialize-css/dist/js/materialize.js'
     ])
     .pipe(changed('js'))
     .pipe(foreach(function(stream, file){

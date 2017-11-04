@@ -1,22 +1,19 @@
 {
-  "name": "recommendwp",
+  "name": "materialize-genesis",
   "version": "1.0.0",
-  "description": "A Genesis child theme for RecommendWP.",
+  "description": "A Genesis child theme based on Materialize CSS.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://bitbucket.org/webdevsuperfast/recommendwp.git"
-  },
+  "repository": "git+https://github.com/webdevsuperfast/materialize-genesis.git",
   "keywords": [
     "genesis",
     "recommendwp",
     "wordpress",
     "materializecss"
   ],
-  "author": "RecommendWP",
+  "author": "Rotsen Mark Acob",
   "license": "MIT",
   "homepage": "https://bitbucket.org/webdevsuperfast/recommendwp#readme",
   "devDependencies": {
@@ -38,5 +35,10 @@
     "jshint": "^2.9.5",
     "merge-stream": "^1.0.1",
     "vinyl-paths": "^2.1.0"
+  },
+  "dependencies": {
+    "materialize": "^1.0.0",
+    "materialize-css": "^0.100.2",
+    "normalize-css": "^2.3.1"
   }
 }
