@@ -1740,10 +1740,6 @@ materialize-css@^0.100.2:
     hammerjs "^2.0.8"
     jquery "^3.0.0 || ^2.1.4"
 
-materialize@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/materialize/-/materialize-1.0.0.tgz#3e91c8a8c25475a7324e062ba34baf71c4a334aa"
-
 meow@^3.3.0, meow@^3.4.0, meow@^3.7.0:
   version "3.7.0"
   resolved "https://registry.yarnpkg.com/meow/-/meow-3.7.0.tgz#72cb668b425228290abbfa856892587308a801fb"
