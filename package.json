@@ -37,7 +37,7 @@
     "vinyl-paths": "^2.1.0"
   },
   "dependencies": {
-    "materialize-css": "^0.100.2",
+    "materialize-css": "^1.0.0-alpha.2",
     "normalize-css": "^2.3.1"
   }
 }
