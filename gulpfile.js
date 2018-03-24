@@ -18,16 +18,11 @@ var gulp = require('gulp'),
 
 // CSS
 gulp.task('styles', function(){
-    var cssStream = gulp.src([
-        'node_modules/normalize-css/normalize.css'
-    ])
-    .pipe(concat('normalize.css'));
-
     var sassStream = gulp.src('assets/scss/app.scss')
         .pipe(sass.sync().on('error', sass.logError))
         .pipe(concat('app.scss'))
     
-    var mergeStream = merge(cssStream,sassStream)
+    var mergeStream = merge(sassStream)
         .pipe(concat('app.css'))
         .pipe(autoprefixer('last 2 version'))
         .pipe(cmq())
