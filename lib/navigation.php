@@ -26,7 +26,7 @@ function mg_nav_menu_markup_filter( $html, $args ) {
 	$data_target = 'mobile-navigation';
 	
 	if ( 'primary' == $args->theme_location ) {
-		$output = '<a href="#" data-activates="'.$data_target.'" class="button-collapse"><i class="material-icons">menu</i></a>';
+		$output = '<a href="#" data-target="'.$data_target.'" class="sidenav-trigger"><i class="material-icons">menu</i></a>';
 		$output .= apply_filters( 'mg_navbar_brand', mg_navbar_brand_markup() );
 	}
 	
