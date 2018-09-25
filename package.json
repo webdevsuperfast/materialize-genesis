@@ -17,27 +17,11 @@
   "license": "GPLv3",
   "homepage": "https://github.com/webdevsuperfast/materialize-genesis#readme",
   "devDependencies": {
-    "del": "^3.0.0",
     "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^5.0.0",
-    "gulp-cache": "^1.0.2",
-    "gulp-changed": "^3.2.0",
-    "gulp-clean-css": "^3.9.3",
-    "gulp-combine-mq": "^0.4.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-flatmap": "^1.0.2",
-    "gulp-jsbeautifier": "^2.1.2",
-    "gulp-jshint": "^2.1.0",
-    "gulp-notify": "^3.2.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^3.2.1",
-    "gulp-uglify": "^3.0.0",
-    "jshint": "^2.9.5",
-    "merge-stream": "^1.0.1",
-    "vinyl-paths": "^2.1.0"
+    "gulp-wp-toolkit": "^2.3.2"
   },
   "dependencies": {
-    "materialize-css": "^1.0.0-beta"
+    "materialize-css": "^1.0.0"
   },
   "private": true
 }
