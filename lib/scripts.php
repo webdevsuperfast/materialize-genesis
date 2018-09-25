@@ -7,9 +7,9 @@ function mg_enqueue_scripts() {
 
     if ( !is_admin() ) {
         //* comment out the next two lines to load the local copy of jQuery
-        // wp_deregister_script('jquery');
-        // wp_register_script('jquery', 'https://code.jquery.com/jquery-3.2.1.min.js', false, '3.2.1');
-        // wp_enqueue_script('jquery');
+        wp_deregister_script( 'jquery' );
+        wp_register_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js', false, '3.3.1' );
+        wp_enqueue_script( 'jquery' );
         
         //* Materialize JS
         wp_register_script( 'app-materialize-js', MG_JS . 'materialize.min.js', array( 'jquery' ), null, true );
