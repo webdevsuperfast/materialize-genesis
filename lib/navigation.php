@@ -5,10 +5,8 @@ function mg_nav_menu_args( $args ) {
 
 	if ( 'primary' === $args['theme_location'] ) {
 		$args['container'] = '';
+		// $args['depth'] = ;
 		$args['items_wrap'] = '<ul id="%1$s" class="right hide-on-med-and-down %2$s">%3$s</ul>';
-		// $args['fallback_cb'] = 'Materialize_CSS_Menu_Walker::fallback';
-        // $args['walker'] = new Materialize_CSS_Menu_Walker();
-		// $args['menu_class'] = 'right hide-on-med-and-down';
 		$args['walker'] = new wp_materialize_navwalker();
 	}
 
