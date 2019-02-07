@@ -1,53 +1,108 @@
 'use strict';
 
 var gulp = require('gulp'),
-    pkg = require('./package.json'),
-    toolkit = require('gulp-wp-toolkit');
+    sass = require('gulp-sass'),
+    postcss = require('gulp-postcss'),
+    jshint = require('gulp-jshint'),
+    uglify = require('gulp-uglify'),
+    rename = require('gulp-rename'),
+    concat = require('gulp-concat'),
+    notify = require('gulp-notify'),
+    merge = require('merge-stream'),
+    foreach = require('gulp-flatmap'),
+    changed = require('gulp-changed'),
+    browserSync = require('browser-sync').create(),
+    wpPot = require('gulp-wp-pot'),
+    cssnano = require('cssnano'),
+    cmq = require('css-mqpacker'),
+    autoprefixer = require('autoprefixer');
 
-toolkit.extendConfig({
-    theme: {
-        name: 'Materialize Genesis',
-        homepage: pkg.homepage,
-        description: pkg.description,
-        author: pkg.author,
-        version: pkg.version,
-        license: pkg.license,
-        textdomain: pkg.name
+var plugins = [
+    autoprefixer,
+    cssnano,
+    cmq
+]
+
+var paths = {
+    styles: {
+        src: 'assets/scss/app.scss',
+        dest: 'assets/css'
     },
-    css: {
-        basefontsize: 16, // Used by postcss-pxtorem.
-		cssnano: {
-			discardComments: {
-				removeAll: true
-			},
-			zindex: false,
-		},
-        remreplace: false, // Used by postcss-pxtorem.
-        remmediaquery: true, // Used by postcss-pxtorem.
-		scss: {
-			'app': {
-				src: 'develop/scss/app.scss',
-				dest: 'assets/css/',
-				outputStyle: 'compressed',
-			},
-		},
-    },
-    js: {
-        'app': [
-            'develop/js/source/*.js'
-        ],
-        'materialize': [
+    scripts: {
+        src: [
+            'assets/js/source/app.js',
             'node_modules/materialize-css/dist/js/materialize.js'
-        ]
+        ],
+        dest: 'assets/js'
     },
-    dest: {
-        js: 'assets/js/',
-        css: 'assets/css/'
+    languages: {
+        src: '**/*.php',
+        dest: 'languages/materialize-genesis.pot'
     },
-    server: {
-        proxy: 'wordpress.test',
-        online: true
+    site: {
+        url: 'http://wordpress.test'
     }
-});
+}
 
-toolkit.extendTasks(gulp, /* Gulp task overrides. */);
+function translation() {
+    return gulp.src(paths.languages.src)
+        .pipe(wpPot())
+        .pipe(gulp.dest(paths.languages.dest))
+}
+
+function scriptsLint() {
+    return gulp.src('assets/js/source/**/*','gulpfile.js')
+        .pipe(jshint('.jshintrc'))
+        .pipe(jshint.reporter('default'))
+}
+
+function style() {
+    return gulp.src(paths.styles.src)
+        .pipe(sass().on('error', sass.logError))
+        .pipe(postcss(plugins))
+        .pipe(rename('app.css'))
+        .pipe(gulp.dest(paths.styles.dest))
+        .pipe(browserSync.stream())
+        .pipe(notify({ message: 'Styles task complete' }));
+}
+
+function js() {
+    return gulp.src(paths.scripts.src)
+    .pipe(changed(paths.scripts.dest))
+    .pipe(foreach(function(stream, file){
+        return stream
+            .pipe(uglify())
+            .pipe(rename({suffix: '.min'}))
+    }))
+    .pipe(gulp.dest(paths.scripts.dest))
+    .pipe(browserSync.stream({match: '**/*.js'}))
+    .pipe(notify({ message: 'Scripts task complete' }));
+}
+
+function browserSyncServe(done) {
+    browserSync.init({
+        injectChanges: true,
+        proxy: paths.site.url
+    })
+    done();
+}
+
+function browserSyncReload(done) {
+    browserSync.reload();
+    done();
+}
+
+function watch() {
+    gulp.watch(['assets/scss/*.scss', 'assets/scss/**/*.scss'], style).on('change', browserSync.reload)
+    gulp.watch(paths.scripts.src, gulp.series(scriptsLint, js))
+    gulp.watch([
+            '*.php',
+            'lib/*'
+        ],
+        gulp.series(browserSyncReload)
+    )
+}
+
+gulp.task('translation', translation);
+
+gulp.task('default', gulp.parallel(style, js, browserSyncServe, watch));
