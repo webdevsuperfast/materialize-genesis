@@ -70,9 +70,6 @@ class wp_materialize_navwalker extends Walker {
       $classes[] = 'dropdown';
     }
     $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
-    // $class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
-    // $id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
-    // $id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
     $output     .= $indent . '<li id="nav-menu-item-'. $item->ID . '" class="' . $depth_class_names . '">';
     $attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
     $attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
@@ -84,15 +81,16 @@ class wp_materialize_navwalker extends Walker {
     $item_output .= '<a'. $attributes .'>';
     $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
 
-    if(!empty($children))
+    if( !empty( $children ) )
       $item_output .= '<i class="material-icons right">arrow_drop_down</i>';
 
     $item_output .= '</a>';
 
     $item_output .= $args->after;
 
-    if(!empty($children))
+    if( !empty( $children ) )
       $item_output .= '<ul id="dropdown-'.$item->ID.'"';
+      
     $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
 
   }
