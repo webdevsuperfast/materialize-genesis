@@ -8,7 +8,7 @@ function mg_enqueue_scripts() {
     if ( !is_admin() ) {
         //* comment out the next two lines to load the local copy of jQuery
         wp_deregister_script( 'jquery' );
-        wp_register_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js', false, '3.3.1' );
+        wp_register_script( 'jquery', MG_JS . 'jquery.slim.min.js', false, '3.3.1' );
         wp_enqueue_script( 'jquery' );
         
         //* Materialize JS
@@ -18,6 +18,9 @@ function mg_enqueue_scripts() {
         //* App JS
         wp_register_script( 'app-js', MG_JS . 'app.min.js', array( 'jquery' ), null, true );
         wp_enqueue_script( 'app-js' );
+
+        // Material Icons
+        wp_enqueue_style( 'material-icons', '//fonts.googleapis.com/css?family=Material+Icons', array(), CHILD_THEME_VERSION );
         
         //* App CSS
         wp_enqueue_style( 'app-css', MG_CSS . 'app.css' );
