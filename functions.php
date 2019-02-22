@@ -14,19 +14,11 @@ define( 'MG_IMG', CHILD_URL . '/images/' );
 define( 'MG_LIB', CHILD_DIR . '/lib/' );
 define( 'MG_MODULES', CHILD_DIR . '/lib/modules/' );
 
-//* Enqueue Google Fonts
-add_action( 'wp_enqueue_scripts', 'mg_google_fonts' );
-function mg_google_fonts() {
-
-	wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Material+Icons', array(), CHILD_THEME_VERSION );
-
-}
-
 //* Add HTML5 markup structure
 add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list' ) );
 
 //* Add Accessibility support
-// add_theme_support( 'genesis-accessibility', array( 'headings', 'drop-down-menu',  'search-form', 'skip-links', 'rems' ) );
+add_theme_support( 'genesis-accessibility', array( 'headings', 'drop-down-menu',  'search-form', 'skip-links', 'rems' ) );
 
 //* Add viewport meta tag for mobile browsers
 add_theme_support( 'genesis-responsive-viewport' );
