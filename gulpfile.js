@@ -31,7 +31,8 @@ var paths = {
     scripts: {
         src: [
             'assets/js/source/app.js',
-            'node_modules/materialize-css/dist/js/materialize.js'
+            'node_modules/materialize-css/dist/js/materialize.js',
+            'node_modules/jquery/dist/jquery.slim.js'
         ],
         dest: 'assets/js'
     },
