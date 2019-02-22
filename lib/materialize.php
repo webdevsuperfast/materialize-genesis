@@ -133,7 +133,7 @@ function mg_filter_menu_wrap( $output, $original_output ) {
 			$output = str_replace( 'class="wrap', 'class="nav-wrapper wrap', $output );
 			break;
 		case 'close':
-			$output = wp_nav_menu( array( 'theme_location' => 'secondary', 'echo' => 0, 'menu_id' => 'mobile-navigation', 'menu_class' => 'side-nav', 'container' => '' ) ) . $output;
+			$output = wp_nav_menu( array( 'theme_location' => 'secondary', 'echo' => 0, 'menu_id' => 'mobile-navigation', 'menu_class' => 'sidenav', 'container' => '' ) ) . $output;
 			break;
 		default:
 			break;
