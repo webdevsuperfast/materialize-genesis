@@ -13,7 +13,8 @@ function mg_nav_menu_args( $args ) {
 	if ( 'secondary' === $args['theme_location'] ) {
 		$args['container'] = '';
 		$args['items_wrap'] = '<ul id="%1$s" class="%2$s">%3$s</ul>';
-		$args['walker'] = new wp_materialize_navwalker();
+		// $args['walker'] = new wp_materialize_navwalker();
+		$args['depth'] = 1;
 	}
 
 	return $args;
