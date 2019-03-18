@@ -59,7 +59,7 @@ function scriptsLint() {
 
 function style() {
     return gulp.src(paths.styles.src)
-        .pipe(sass().on('error', sass.logError))
+        .pipe(sass.sync().on('error', sass.logError))
         .pipe(postcss(plugins))
         .pipe(rename('app.css'))
         .pipe(gulp.dest(paths.styles.dest))
