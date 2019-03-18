@@ -1,7 +1,7 @@
 'use strict';
 
 var gulp = require('gulp'),
-    sass = require('gulp-sass'),
+    sass = require('gulp-dart-sass'),
     postcss = require('gulp-postcss'),
     jshint = require('gulp-jshint'),
     uglify = require('gulp-uglify'),
@@ -32,7 +32,7 @@ var paths = {
         src: [
             'assets/js/source/app.js',
             'node_modules/materialize-css/dist/js/materialize.js',
-            'node_modules/jquery/dist/jquery.slim.js'
+            'node_modules/jquery/dist/jquery.js'
         ],
         dest: 'assets/js'
     },
@@ -41,7 +41,7 @@ var paths = {
         dest: 'languages/materialize-genesis.pot'
     },
     site: {
-        url: 'http://wordpress.test'
+        url: 'http://bootstrap.test'
     }
 }
 
