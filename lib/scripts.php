@@ -8,7 +8,7 @@ function mg_enqueue_scripts() {
     if ( !is_admin() ) {
         //* comment out the next two lines to load the local copy of jQuery
         wp_deregister_script( 'jquery' );
-        wp_register_script( 'jquery', MG_JS . 'jquery.slim.min.js', false, '3.3.1' );
+        wp_register_script( 'jquery', MG_JS . 'jquery.min.js', false, '3.3.1' );
         wp_enqueue_script( 'jquery' );
         
         //* Materialize JS
