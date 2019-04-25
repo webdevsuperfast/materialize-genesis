@@ -16,17 +16,15 @@ var gulp = require('gulp'),
     cssnano = require('cssnano'),
     cmq = require('css-mqpacker'),
     autoprefixer = require('autoprefixer'),
-    discardComments = require('postcss-discard-comments');
-
-discardComments({
-    removeAll: false
-});
+    comments = require('postcss-discard-comments');
 
 var plugins = [
     autoprefixer,
     cssnano,
     cmq,
-    discardComments
+    comments({
+        removeAllButFirst: true
+    })
 ]
 
 var paths = {
