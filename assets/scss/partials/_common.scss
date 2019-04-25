@@ -1,0 +1,134 @@
+/* ## Common Classes
+----------------------------------------------------------------------------- */
+
+.avatar {
+	float: left;
+	.alignleft &, .author-box & {
+		margin-right: $gutter-width;
+	}
+	.alignright & {
+		margin-left: $gutter-width;
+	}
+	.comment & {
+		margin: 0 $gutter-width/2 $gutter-width 0;
+	}
+}
+
+.breadcrumb {
+	margin-bottom: $gutter-width;
+}
+
+.archive-description {
+	margin-bottom: $gutter-width;
+}
+
+.author-box {
+	background-color: #fff;
+	margin-bottom: $gutter-width;
+	padding: $gutter-width;
+	p {
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.author-box-title {
+	margin-bottom: 4px;
+}
+
+.search-form {
+	overflow: hidden;
+	.site-header & {
+		float: right;
+		margin-top: 12px;
+	}
+	.entry-content &, .site-header & {
+		width: 50%;
+	}
+}
+
+.genesis-nav-menu, .widget_search {
+	input[type="submit"] {
+		border: 0;
+		clip: rect(0, 0, 0, 0);
+		height: 1px;
+		margin: -1px;
+		padding: 0;
+		position: absolute;
+		width: 1px;
+	}
+}
+
+a {
+	&.aligncenter {
+		img {
+			display: block;
+			margin: 0 auto;
+		}
+	}
+	&.alignnone {
+		display: inline-block;
+	}
+	&.alignleft, &.alignnone, &.alignright {
+		max-width: 100%;
+	}
+}
+
+.alignleft {
+	float: left;
+	text-align: left;
+}
+
+.alignright {
+	float: right;
+	text-align: right;
+}
+
+.aligncenter {
+	display: block;
+	margin: 0 auto $gutter-width;
+}
+
+.alignnone {
+	margin-bottom: $gutter-width;
+}
+
+img{
+	&.centered {
+		@extend .aligncenter;
+	}
+}
+
+img {
+	&.alignnone {
+		@extend .alignnone;
+	}
+}
+
+a, img, .wp-caption {
+	&.alignleft {
+		margin: 0 $gutter-width $gutter-width 0;
+	}
+	&.alignright {
+		margin: 0 0 $gutter-width $gutter-width;
+	}
+}
+
+.wp-caption-text {
+	text-align: center;
+}
+
+.entry-content {
+	p {
+		&.wp-caption-text {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.wp-audio-shortcode, .wp-playlist, .wp-video {
+	.entry-content & {
+		margin: 0 0 $gutter-width;
+	}
+}

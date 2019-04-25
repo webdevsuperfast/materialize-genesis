@@ -1,14 +1,41 @@
+/*! # Materialize Genesis Theme
+Theme Name: Materialize Genesis
+Theme URI: http://github.com/webdevsuperfast/materialize-genesis
+Description: This is the Materialize Genesis child theme created for the Genesis Framework.
+Author: Rotsen Mark Acob
+Author URI: https://rotsenacob.com/
+Version: 1.0.1
+Template: genesis
+Template Version: 2.2.7
+Tags: black, orange, white, one-column, two-columns, three-columns, left-sidebar, right-sidebar, responsive-layout, custom-menu, full-width-template, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
+License: GPL-2.0+
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+*/
+
 // Variables
 @import "modules/variables";
 
 // Materialize CSS
 @import "../../node_modules/materialize-css/sass/materialize";
 
-// Accessibility
-@import "partials/accessibility";
+// Functions
+@import "modules/functions";
 
-// Navigation
-@import "partials/nav";
+// Mixin
+@import "modules/mixins";
 
-// Layout
+// Extends
+@import "modules/extends";
+
+// Partials
+@import "partials/default";
 @import "partials/layout";
+@import "partials/common";
+@import "partials/widget";
+@import "partials/plugin";
+@import "partials/header";
+@import "partials/navigation";
+@import "partials/content";
+@import "partials/sidebar";
+@import "partials/footer-widget";
+@import "partials/footer";
