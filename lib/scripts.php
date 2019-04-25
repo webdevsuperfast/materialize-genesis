@@ -23,6 +23,6 @@ function mg_enqueue_scripts() {
         wp_enqueue_style( 'material-icons', '//fonts.googleapis.com/css?family=Material+Icons', array(), CHILD_THEME_VERSION );
         
         //* App CSS
-        wp_enqueue_style( 'app-css', MG_CSS . 'app.css' );
+        // wp_enqueue_style( 'app-css', MG_CSS . 'app.css' );
     }
 }
