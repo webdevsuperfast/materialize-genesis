@@ -15,18 +15,24 @@ var gulp = require('gulp'),
     wpPot = require('gulp-wp-pot'),
     cssnano = require('cssnano'),
     cmq = require('css-mqpacker'),
-    autoprefixer = require('autoprefixer');
+    autoprefixer = require('autoprefixer'),
+    discardComments = require('postcss-discard-comments');
+
+discardComments({
+    removeAll: false
+});
 
 var plugins = [
     autoprefixer,
     cssnano,
-    cmq
+    cmq,
+    discardComments
 ]
 
 var paths = {
     styles: {
         src: 'assets/scss/app.scss',
-        dest: 'assets/css'
+        dest: './'
     },
     scripts: {
         src: [
@@ -61,7 +67,7 @@ function style() {
     return gulp.src(paths.styles.src)
         .pipe(sass.sync().on('error', sass.logError))
         .pipe(postcss(plugins))
-        .pipe(rename('app.css'))
+        .pipe(rename('style.css'))
         .pipe(gulp.dest(paths.styles.dest))
         .pipe(browserSync.stream())
         .pipe(notify({ message: 'Styles task complete' }));
