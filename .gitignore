@@ -11,3 +11,4 @@ temp
 .vscode
 .rev
 .DS_Store
+.yarnclean
