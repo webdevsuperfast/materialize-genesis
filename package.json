@@ -26,16 +26,17 @@
     "gulp": "^4.0.2",
     "gulp-changed": "^3.2.0",
     "gulp-concat": "^2.6.1",
-    "gulp-dart-sass": "^0.9.1",
     "gulp-flatmap": "^1.0.2",
     "gulp-jshint": "^2.1.0",
     "gulp-notify": "^3.2.0",
     "gulp-postcss": "^8.0.0",
     "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
     "gulp-uglify": "^3.0.2",
     "gulp-wp-pot": "^2.3.5",
     "jshint": "^2.10.2",
-    "merge-stream": "^1.0.1"
+    "merge-stream": "^1.0.1",
+    "sass": "^1.20.1"
   },
   "dependencies": {
     "jquery": "^3.4.1",

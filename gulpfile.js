@@ -1,7 +1,7 @@
 'use strict';
 
 var gulp = require('gulp'),
-    sass = require('gulp-dart-sass'),
+    sass = require('gulp-sass'),
     postcss = require('gulp-postcss'),
     jshint = require('gulp-jshint'),
     uglify = require('gulp-uglify'),
@@ -17,6 +17,8 @@ var gulp = require('gulp'),
     cmq = require('css-mqpacker'),
     autoprefixer = require('autoprefixer'),
     comments = require('postcss-discard-comments');
+
+sass.compiler = require('sass');
 
 var plugins = [
     autoprefixer,
@@ -63,7 +65,7 @@ function scriptsLint() {
 
 function style() {
     return gulp.src(paths.styles.src)
-        .pipe(sass.sync().on('error', sass.logError))
+        .pipe(sass().on('error', sass.logError))
         .pipe(postcss(plugins))
         .pipe(rename('style.css'))
         .pipe(gulp.dest(paths.styles.dest))
