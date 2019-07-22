@@ -14,7 +14,6 @@ var gulp = require('gulp'),
     browserSync = require('browser-sync').create(),
     wpPot = require('gulp-wp-pot'),
     cssnano = require('cssnano'),
-    cmq = require('css-mqpacker'),
     autoprefixer = require('autoprefixer'),
     comments = require('postcss-discard-comments');
 
@@ -23,7 +22,6 @@ sass.compiler = require('sass');
 var plugins = [
     autoprefixer,
     cssnano,
-    cmq,
     comments({
         removeAllButFirst: true
     })
@@ -47,7 +45,7 @@ var paths = {
         dest: 'languages/materialize-genesis.pot'
     },
     site: {
-        url: 'http://bootstrap.test'
+        url: 'http://wordpress.local'
     }
 }
 
