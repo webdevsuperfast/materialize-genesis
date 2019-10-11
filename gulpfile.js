@@ -45,7 +45,7 @@ var paths = {
         dest: 'languages/materialize-genesis.pot'
     },
     site: {
-        url: 'http://wordpress.local'
+        url: 'http://materialize.test'
     }
 }
 
