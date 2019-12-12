@@ -45,7 +45,7 @@ var paths = {
         dest: 'languages/materialize-genesis.pot'
     },
     site: {
-        url: 'http://materialize.test'
+        url: 'http://bootstrap.test'
     }
 }
 
